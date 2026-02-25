@@ -32,3 +32,8 @@ to use these two at the same time and not to write in two diff lines used writeH
 
 
 okk so the node modules that are insatlled on downloading any package if deleted can be istalled using only npm install as the package installed is saved as a dependency in the package .json 
+
+
+
+we use express because in that we can make a method specially linked to its endpoint 
+int node we need to manually check the url 
