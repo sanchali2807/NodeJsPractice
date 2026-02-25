@@ -1,0 +1,22 @@
+node js run on v8 engine and written in c++ code
+it is a non blocking , does not wait around for io operations , used events loop and callbacks for it to be non blocking 
+a single main thread that executes 
+use event loop to perform non blocking io operations 
+Node.js does not wait for an asynchronous operation to complete. It continues executing other code, and once the operation finishes, its callback is queued and executed later by the event loop.
+console.log("1") → printed immediately
+
+setTimeout(...)
+Timer is started in background
+JS moves on immediately
+console.log("3") → printed immediately
+After 1 second:
+Callback is placed in task queue
+Event loop checks:
+Call stack empty? ✅
+Execute callback
+console.log("2") runs
+
+
+
+
+in case of using module.exports for function do not need to write parathesis and in index.js use require to import it
