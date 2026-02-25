@@ -25,3 +25,10 @@ in case of using module.exports for function do not need to write parathesis and
 
 now for es modules that is import export syntax so in package.json file add type to module
 if not exported using default while importing need to use curly bracket and need to write .js or an error will come saying could not find the module
+
+
+setHeader is for content type like text plain or html and status code to send a status code 
+to use these two at the same time and not to write in two diff lines used writeHead()
+
+
+okk so the node modules that are insatlled on downloading any package if deleted can be istalled using only npm install as the package installed is saved as a dependency in the package .json 
