@@ -20,3 +20,8 @@ console.log("2") runs
 
 
 in case of using module.exports for function do not need to write parathesis and in index.js use require to import it
+
+
+
+now for es modules that is import export syntax so in package.json file add type to module
+if not exported using default while importing need to use curly bracket and need to write .js or an error will come saying could not find the module
