@@ -10,19 +10,27 @@ const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // console.log(__dirname,__filename);
 
-const server = http.createServer((req,res)=>{
+const server = http.createServer(async(req,res)=>{
     try{
         if(req.method == 'GET'){
+            let filepath;
             if(req.url === '/'){
-                res.writeHead(200,{'Content-type' : 'text/html'});
-                res.end('<h1>HOMEPAGE</h1>');
+                // res.writeHead(200,{'Content-type' : 'text/html'});
+                // res.end('<h1>HOMEPAGE</h1>');
+                filepath = path.join(__dirname,'public','index.html');
             }else if(req.url === '/about'){
-                 res.writeHead(200,{'Content-type' : 'text/html'});
-                res.end('<h1>About</h1>');
+                //  res.writeHead(200,{'Content-type' : 'text/html'});
+                // res.end('<h1>About</h1>');
+                filepath = path.join(__dirname,'public','about.html');
             }else{
-                 res.writeHead(404,{'Content-type' : 'text/html'});
-                res.end('<h1>NOT FOUND</h1>');
+                throw new Error('Not Found');
+                //  res.writeHead(404,{'Content-type' : 'text/html'});
+                // res.end('<h1>NOT FOUND</h1>');
             }
+            const data = await fs.readFile(filepath);
+            res.setHeader('Content-type' , 'text/html');
+            res.write(data);
+            res.end();
         }else{
             throw new error('method not allowed');
         }
