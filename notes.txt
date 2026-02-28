@@ -43,3 +43,5 @@ int node we need to manually check the url
 
 
 if you use curly brackets in arrow function what ever value or varibale you declare you need to explicitly return it using return keyword
+
+for the middleware to work the code must be wrapped inside that middleware as a callback 
