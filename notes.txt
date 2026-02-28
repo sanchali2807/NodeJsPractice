@@ -40,3 +40,6 @@ int node we need to manually check the url
 
 
 “In core Node.js, HTML files must be read from disk using the filesystem module. Frameworks like Express abstract this by internally using fs to stream static files.”
+
+
+if you use curly brackets in arrow function what ever value or varibale you declare you need to explicitly return it using return keyword

@@ -13,10 +13,19 @@ if(req.url === '/api/users' && req.method == 'GET'){
     res.end();
 }else if(req.url.match(/\/api\/users\/([0-9]+)/) && req.method === 'GET'){
     const id = req.url.split('/')[3];
-    console.log(id);
-     res.setHeader('Content-type','application/json');
-    res.write(JSON.stringify({id: 1,name: 'John Doe'}));
+    const user = users.find((user)=>{
+        return user.id === parseInt(id);
+    })
+    if(user){
+         res.setHeader('Content-type','application/json');
+       res.write(JSON.stringify(user));
+       res.end();
+    }else{
+        res.setHeader('Content-type','application/json');
+     res.statusCode = 404;
+    res.write(JSON.stringify('User  not found'));
     res.end();
+    }
 }else{
      res.setHeader('Content-type','application/json');
      res.statusCode = 404;
