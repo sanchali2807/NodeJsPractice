@@ -64,7 +64,7 @@ const createUseHandler = (req,res,next) =>{
         res.statusCode = 201;
         // java script object to json 
         res.write(JSON.stringify(newUser));
-        res.end;
+        res.end();
     })
 
 }
