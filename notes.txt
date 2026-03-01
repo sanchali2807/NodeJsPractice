@@ -45,3 +45,61 @@ int node we need to manually check the url
 if you use curly brackets in arrow function what ever value or varibale you declare you need to explicitly return it using return keyword
 
 for the middleware to work the code must be wrapped inside that middleware as a callback 
+
+
+
+🔹 Request vs Response (core idea)
+
+req → incoming data from client to server
+
+res → outgoing data from server to client
+
+They are independent streams.
+
+🔹 req.on('data')
+
+Triggered every time a chunk of the request body arrives
+
+Used to collect POST/PUT data
+
+Data comes in pieces, not all at once
+
+req.on('data', (chunk) => {
+    body += chunk.toString();
+});
+🔹 req.on('end')
+
+Triggered when the client has finished sending the request body
+
+Means no more chunks will arrive
+
+Safe place to:
+
+parse JSON
+
+use the full body
+
+start sending a response
+
+req.on('end', () => {
+    // body is complete here
+});
+
+'end' is an event, not a keyword in your JSON
+
+🔹 res.end()
+
+Tells Node:
+
+“I’m done sending the response.”
+
+Mandatory to finish the request
+
+If missing → client waits / response body may not appear
+
+res.end();
+🔹 Timeline (important)
+Client sends body  → req.on('data')
+Client finishes   → req.on('end')
+Server responds   → res.write(...)
+Server finishes   → res.end()
