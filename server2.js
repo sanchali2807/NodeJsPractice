@@ -48,6 +48,26 @@ const notFoundHandler = (req,res,next)=>{
             res.write(JSON.stringify('Route not found'));
             res.end()
 }
+
+
+// route handler for post request of /api/users
+const createUseHandler = (req,res,next) =>{
+    let body = '';
+    // lsiten for an event or data
+    req.on('data',(chunk)=>{
+        body += chunk.toString();
+    });
+    req.on('end' , ()=>{
+        // json to java script object
+        const newUser = JSON.parse(body);
+        users.push(newUser);
+        res.statusCode = 201;
+        // java script object to json 
+        res.write(JSON.stringify(newUser));
+        res.end;
+    })
+
+}
 const server = createServer((req,res)=>{
     logger(req,res,()=>{
         jsonMiddle(req,res,()=>{
@@ -55,7 +75,10 @@ const server = createServer((req,res)=>{
                 getUserHandler(req,res);
             }else if(req.url.match(/\/api\/users\/([0-9]+)/) && req.method === 'GET'){
                 getUserByIdHandler(req,res);
-            }else{
+            }else if(req.url === '/api/users' && req.method === 'POST'){
+                createUseHandler(req,res);
+            }
+            else{
                 notFoundHandler(req,res);
             }
         })
@@ -85,7 +108,7 @@ const server = createServer((req,res)=>{
     //         res.end();
     //     }
     });
-});
+});    
 const port = process.env.PORT;
 server.listen(port,()=>{
     console.log(`server running on port ${port}`);
