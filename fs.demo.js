@@ -39,4 +39,28 @@ const readFileFun = async()=>{
     console.log(err);
     }
 }
+
+
+// write file 
+const writeFileFun = async ()=>{
+    try{
+        await fs.writeFile('./test.txt','Hello i am writing here');
+        console.log("file is written");
+    }catch(err){
+        console.log(err);
+    }
+}
+
+// append 
+const appendFileFun = async ()=>{
+    try{
+        await fs.appendFile('./test.txt','\n appending to this file');
+        console.log("file appended to...");
+    }catch(err){
+        console.log(err);
+    }
+}
+writeFileFun(); 
+appendFileFun();
+appendFileFun();
 readFileFun();
