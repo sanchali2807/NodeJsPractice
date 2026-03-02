@@ -103,3 +103,8 @@ Client sends body  → req.on('data')
 Client finishes   → req.on('end')
 Server responds   → res.write(...)
 Server finishes   → res.end()
+
+
+
+file system
+to read the file we need three things the location of the file then utf 8 then then callback so it is synchronous so theat when the file is read  
