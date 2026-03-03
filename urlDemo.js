@@ -9,5 +9,10 @@ const urlConst = new URL(urlString);
 // console.log(url.format(urlConst)); 
 
 // meta .url
-console.log(import.meta.url);
+// console.log(import.meta.url);
 // fileURLTOPath gives only the path without file:// protocol
+
+
+const params = new URLSearchParams(urlConst.search);
+console.log(params);
+// now you can do all curd operation on the params

@@ -108,3 +108,12 @@ Server finishes   → res.end()
 
 file system
 to read the file we need three things the location of the file then utf 8 then then callback so it is synchronous so theat when the file is read  
+
+
+
+
+
+crypto → Node.js built-in security module
+createHash('sha256') → creates a SHA-256 hashing object
+update('password1234') → adds data to be hashed
+digest('hex') → finalizes and returns the hash as a hexadecimal string
