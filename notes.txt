@@ -117,3 +117,12 @@ crypto → Node.js built-in security module
 createHash('sha256') → creates a SHA-256 hashing object
 update('password1234') → adds data to be hashed
 digest('hex') → finalizes and returns the hash as a hexadecimal string
+
+
+
+//If you need…	Use
+// Same output for same input	createHash()
+// Completely unpredictable value	randomBytes()
+// cypher text
+// encrypt readable text to cypher text and cypher text can only be decrypted by someone who posses a key
+// uses an iv so even if the text remains same the encrypted format is always diff
