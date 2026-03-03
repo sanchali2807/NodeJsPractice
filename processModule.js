@@ -3,3 +3,5 @@
 
 // process.env
 console.log(process.env.LOGNAME);
+
+console.log(process.title);
