@@ -38,7 +38,7 @@ encrypted += cipher.final('hex');
 console.log(encrypted);
 
 
-
+//decrypt
 const decipher = crypto.createDecipheriv(algortihm,key,IV);
 let dencrypted = decipher.update(encrypted, 'hex','utf-8');
 dencrypted += decipher.final('utf-8');
