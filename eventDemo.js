@@ -24,3 +24,12 @@ emitter.on('goodbye',bye);
 // can pass arguemmts as well
 emitter.emit('hi','john');
 emitter.emit('goodbye','josn');
+
+
+// error event
+emitter.on('error',(err)=>{
+     console.log('An error occured',err);
+})
+
+// stimulate error
+emitter.emit('error',new Error('something went wrong')); 
